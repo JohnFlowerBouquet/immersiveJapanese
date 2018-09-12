@@ -1,0 +1,203 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Immersive Japanese</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="styles/main.css" />
+	<noscript><link rel="stylesheet" href="styles/noscript.css" /></noscript>
+</head>
+<body>
+	<div class="wrapper">
+		<section class="main">
+			<header class="header">
+				<nav class="nav">
+					<div class="nav__menu" onclick="myFunction(this)">
+  						<div class="bar1"></div>
+  						<div class="bar2"></div>
+  						<div class="bar3"></div>
+					</div>
+					<div class="nav__status">
+						<div class="state">Level 0</div>
+					</div>
+					<div class="nav__logo">
+						<h1 class="nav__title">IJ</h1>
+					</div>
+				</nav>
+				<div class="level">
+					<div class="level__menu">
+						<div class="level__item" data-name="hiraganaFlashcards">Hiragana Flashcards</div>
+					</div>
+				</div>
+			</header>
+			<div class="box">
+				<div class="dialogBackground">
+      				<span class="arrow"></span>
+   				</div>
+				<p class="dialog">こんにちは！！</p>
+				<img class="cat" src="img/cat.png" alt="cat">
+			</div>			
+		</section>
+	</div>
+<footer class="footer">
+	<div class="author">
+		<span>&copy; Jan Szczepański</span>
+		</div>
+</footer>
+
+<script>
+const dialogBackground = document.querySelector('.dialogBackground');
+const dialogBox = document.querySelector('.dialog');
+const cat = document.querySelector('.cat');
+const state = document.querySelector('.state');
+const level = document.querySelector('.level');
+const levelItems = document.querySelectorAll('.level__item');
+const box = document.querySelector('.box');
+levelItems.forEach(item => {
+	item.addEventListener('click', (e) => {
+		Quizes.hiraganaFlashcards();
+		dialogBackground.remove(); cat.remove(); dialogBox.remove();
+		levelMenu();
+	});
+});
+state.addEventListener('click', (e) => levelMenu());
+
+function myFunction(x) {
+    x.classList.toggle("change");
+}
+function welcome() {
+	const welcomeDialog = ['日本語はわかりませんか',　'仕方がない。。。', 'でも。。。', '諦めないで！！！', '始めましょうか。'];
+	var i = 0;
+	cat.addEventListener('click', function changeDialog() {
+		dialogBox.style.opacity = 0;
+		dialogBox.addEventListener('transitionend', (e) => {
+			dialogBox.innerHTML = `${welcomeDialog[i]}`; 
+			dialogBox.style.opacity = 1;
+			dialogBox.addEventListener('transitionend', (e) => {
+				matchDialogBox();
+			});
+		})	
+		
+		if (i < (welcomeDialog.length -1)) {i+= 1} else {
+			cat.style.opacity = 0;
+			dialogBox.style.opacity = 0;
+			dialogBackground.style.opacity = 0;
+			setTimeout(() => {dialogBackground.remove(); cat.remove(); dialogBox.remove(); level.classList.toggle('active')}, 1000);
+			
+		}
+	});
+};
+
+function levelMenu() {
+	level.classList.toggle('active');
+}
+
+
+function matchDialogBox() {
+	const cat = document.querySelector('.cat');
+	const catCoords = cat.getBoundingClientRect();
+	const dialogBoxSize = dialogBox.getBoundingClientRect();
+    const coords = {
+      height: dialogBoxSize.height,
+      width: dialogBoxSize.width,
+      top: dialogBoxSize.top,
+      left: dialogBoxSize.left,
+    };
+	dialogBackground.style.setProperty('width', `${coords.width}px`);
+    dialogBackground.style.setProperty('height', `${coords.height}px`);
+}
+window.addEventListener('load', function load() {
+	matchDialogBox();
+	welcome();
+});
+/*Quizes*/
+var hiragana = {
+	a: {char: 'あ'},
+	i: {char: 'い'},
+	u: {char: 'う'},
+	e: {char: 'え'},
+	o: {char: 'お'},
+	ka: {char: 'か'},
+	ki: {char: 'き'},
+	ku: {char: 'く'},
+	ke: {char: 'け'},
+	ko: {char: 'こ'},
+	sa: {char: 'さ'},
+	shi: {char: 'し'},
+	su: {char: 'す'},
+	se: {char: 'せ'},
+	so: {char: 'そ'},
+	ta: {char: 'た'},
+	chi: {char: 'ち'},
+	tsu: {char: 'つ'},
+	te: {char: 'て'},
+	to: {char: 'と'},
+	na: {char: 'な'},
+	ni: {char: 'に'},
+	nu: {char: 'ぬ'},
+	ne: {char: 'ね'},
+	no: {char: 'の'},
+	ha: {char: 'は'},
+	hi: {char: 'ひ'},
+	fu: {char: 'ふ'},
+	he: {char: 'へ'},
+	ho: {char: 'ほ'},
+	ma: {char: 'ま'},
+	mi: {char: 'み'},
+	mu: {char: 'む'},
+	me: {char: 'め'},
+	mo: {char: 'も'},
+	ya: {char: 'や'},
+	yu: {char: 'ゆ'},
+	yo: {char: 'よ'},
+	ra: {char: 'ら'},
+	ri: {char: 'り'},
+	ru: {char: 'る'},
+	re: {char: 'れ'},
+	ro: {char: 'ろ'},
+	wa: {char: 'わ'},
+	o: {char: 'を'},
+	n: {char: 'ん'}
+}
+var Quizes = {
+	hiraganaFlashcards: function () {
+		console.log(this);
+		var quizBox = null;
+		quizBox = document.createElement('div');
+		quizBox.setAttribute("class", "quizBox");
+		quizButton = document.createElement('button');
+		quizButton.setAttribute("class", "quizButton");
+		quizButton.addEventListener('click', (e) => quiz());
+		quizButton.innerHTML = `Next`;
+		box.appendChild(quizBox);
+		box.appendChild(quizButton);
+
+		function fill() {
+		var hiraganaList = [];
+		for (key in hiragana) {
+			hiraganaList.push(hiragana[key].char);
+		}
+		return hiraganaList;
+		}
+
+		var list = fill();
+		var list2 = Object.keys(hiragana);
+
+		function quiz() {
+			var random = Math.floor(Math.random()*46);
+			var active = list[random];
+			quizBox.innerHTML = `<span class="quizBox__item">${active}</span>`;
+			var toggle = true;
+			quizBox.addEventListener('click', function flip() {
+			toggle = !toggle;
+			toggle ? active = list[random] : active = list2[random];
+			quizBox.innerHTML = `<span class="quizBox__item">${active}</span>`;
+			})
+		}
+		quiz();
+
+	}
+}
+</script>
+</body>
+</html>
