@@ -5,6 +5,7 @@
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 	<link rel="stylesheet" href="styles/main.css" />
+	<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 	<noscript><link rel="stylesheet" href="styles/noscript.css" /></noscript>
 </head>
 <body>
@@ -26,7 +27,11 @@
 				</nav>
 				<div class="level">
 					<div class="level__menu">
-						<div class="level__item" data-name="hiraganaFlashcards">Hiragana Flashcards</div>
+						<div class="level__item">Hiragana Flashcards</div>
+						<div class="level__item">Hiragana+ Flashcards</div>
+						<div class="level__item">Katakana Flashcards</div>
+						<div class="level__item">Katakana+ Flashcards</div>
+						<div class="level__item">Numbers Flashcards</div>
 					</div>
 				</div>
 			</header>
@@ -35,7 +40,7 @@
       				<span class="arrow"></span>
    				</div>
 				<p class="dialog">こんにちは！！</p>
-				<img class="cat" src="img/cat.png" alt="cat">
+				<div class="cat" alt="cat"><a href="default.asp"></a></div>
 			</div>			
 		</section>
 	</div>
@@ -66,16 +71,19 @@ function myFunction(x) {
     x.classList.toggle("change");
 }
 function welcome() {
-	const welcomeDialog = ['日本語はわかりませんか',　'仕方がない。。。', 'でも。。。', '諦めないで！！！', '始めましょうか。'];
+	const welcomeDialog = ['','日本語はわかりませんか',　'仕方がない。。。', 'でも。。。', '諦めないで！！！', '始めましょうか。'];
+	const welcomeCat = ['question', 'pity', 'demo', 'giveup', 'start'];
 	var i = 0;
 	cat.addEventListener('click', function changeDialog() {
 		dialogBox.style.opacity = 0;
+		cat.classList.remove(welcomeCat[i - 1]);
+		cat.classList.add(welcomeCat[i]);
 		dialogBox.addEventListener('transitionend', (e) => {
 			dialogBox.innerHTML = `${welcomeDialog[i]}`; 
 			dialogBox.style.opacity = 1;
-			dialogBox.addEventListener('transitionend', (e) => {
+			
 				matchDialogBox();
-			});
+			
 		})	
 		
 		if (i < (welcomeDialog.length -1)) {i+= 1} else {
@@ -110,6 +118,13 @@ window.addEventListener('load', function load() {
 	matchDialogBox();
 	welcome();
 });
+
+var Cat = {
+	yesSir: `url('../img/cats.png') 10px 10px;`,
+	hihi: `url('../img/cats.png') 120px 10px;`,
+	phone: `background: url('../img/cats.png') 220px 10px;`,
+	working: `background: url('../img/cats.png') 320px 10px;`
+}
 /*Quizes*/
 var hiragana = {
 	a: {char: 'あ'},
@@ -161,7 +176,9 @@ var hiragana = {
 }
 var Quizes = {
 	hiraganaFlashcards: function () {
-		console.log(this);
+		if (document.querySelector('.quizBox')) {
+			return;
+		} else {
 		var quizBox = null;
 		quizBox = document.createElement('div');
 		quizBox.setAttribute("class", "quizBox");
@@ -181,11 +198,14 @@ var Quizes = {
 		}
 
 		var list = fill();
+		console.log(list);
 		var list2 = Object.keys(hiragana);
 
 		function quiz() {
-			var random = Math.floor(Math.random()*46);
+			var random = Math.floor(Math.random()*45);
+			console.log(random);
 			var active = list[random];
+			console.log(active);
 			quizBox.innerHTML = `<span class="quizBox__item">${active}</span>`;
 			var toggle = true;
 			quizBox.addEventListener('click', function flip() {
@@ -195,6 +215,7 @@ var Quizes = {
 			})
 		}
 		quiz();
+	}
 
 	}
 }
