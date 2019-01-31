@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="css/main.css" />
   </head>
 
-  <body>
+  <body class="mdc-typography">
     <aside class="mdc-drawer mdc-drawer--modal">
       <div class="mdc-drawer__header">
         <h3 class="mdc-drawer__title text-center">
@@ -105,7 +105,7 @@
                   </div>
                 </div>
               </div>
-              <footer class="mdc-dialog__actions">
+              <footer class="mdc-dialog__actions items-center">
                 <button
                   type="button"
                   class="mdc-button mdc-dialog__button mdc-button box-center dialog-button"
@@ -119,6 +119,26 @@
             </div>
           </div>
           <div class="mdc-dialog__scrim"></div>
+        </div>
+        <div class="mdc-card">
+          <div class="mdc-card__primary-action">
+            <div class="mdc-card__media mdc-card__media--square">
+              <div
+                id="card"
+                class="mdc-card__media-content mdc-typography--headline1 flash"
+              ></div>
+            </div>
+          </div>
+          <div class="mdc-card__actions items-center">
+            <div class="mdc-card__action-buttons">
+              <button id="cardBtn1" class="mdc-fab" aria-label="Back">
+                <span class="mdc-fab__icon material-icons">arrow_back</span>
+              </button>
+              <button id="cardBtn2" class="mdc-fab" aria-label="Back">
+                <span class="mdc-fab__icon material-icons">arrow_forward</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

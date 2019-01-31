@@ -13,14 +13,17 @@
   "dependencies": {
     "@material/animation": "^0.41.0",
     "@material/button": "^0.43.0",
+    "@material/card": "^0.43.0",
     "@material/dialog": "^0.43.0",
     "@material/drawer": "^0.43.0",
     "@material/fab": "^0.43.0",
+    "@material/icon-button": "^0.43.0",
     "@material/list": "^0.43.0",
     "@material/menu": "^0.43.0",
     "@material/menu-surface": "^0.43.0",
     "@material/textfield": "^0.43.1",
     "@material/top-app-bar": "^0.43.0",
+    "@material/typography": "^0.43.0",
     "material-components-web": "^0.43.1"
   },
   "devDependencies": {

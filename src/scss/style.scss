@@ -1,7 +1,13 @@
 /*
 * Custom Styles
 */
+$mdc-theme-primary: #f13f3f;
+$mdc-theme-secondary: #feeae6;
+$mdc-theme-on-primary: #442b2d;
+$mdc-theme-on-secondary: #442b2d;
+@import "normalize";
 @import "@material/button/mdc-button";
+@import "@material/icon-button/mdc-icon-button";
 @import "@material/drawer/mdc-drawer";
 @import "@material/list/mdc-list";
 @import "@material/dialog/mdc-dialog";
@@ -10,103 +16,11 @@
 @import "@material/fab/mdc-fab";
 @import "@material/menu-surface/mdc-menu-surface";
 @import "@material/menu/mdc-menu";
+@import "@material/card/mdc-card";
+@import "@material/typography/mdc-typography";
 @import "variables";
 @import "custommdc";
 
-*,
-:after,
-:before {
-  box-sizing: border-box;
-}
-a,
-abbr,
-acronym,
-address,
-applet,
-article,
-aside,
-audio,
-b,
-big,
-blockquote,
-body,
-canvas,
-caption,
-center,
-cite,
-code,
-dd,
-del,
-details,
-dfn,
-div,
-dl,
-dt,
-em,
-embed,
-fieldset,
-figcaption,
-figure,
-footer,
-form,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-header,
-hgroup,
-html,
-i,
-iframe,
-img,
-ins,
-kbd,
-label,
-legend,
-li,
-main,
-mark,
-menu,
-nav,
-object,
-ol,
-output,
-p,
-pre,
-q,
-ruby,
-s,
-samp,
-section,
-small,
-span,
-strike,
-strong,
-sub,
-summary,
-sup,
-table,
-tbody,
-td,
-tfoot,
-th,
-thead,
-time,
-tr,
-tt,
-u,
-ul,
-var,
-video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: 100%;
-  font: inherit;
-  vertical-align: baseline;
-}
 html {
   height: 100%;
 }
@@ -122,18 +36,19 @@ html {
 }
 body {
   background: $bodyBackground;
+  height: 100vh;
 }
 .drawer-main-content {
   display: flex;
-  flex-direction: column;
+  height: 100%;
   justify-content: center;
   align-items: center;
 }
 .text-center {
   text-align: center;
 }
-.box-center {
-  align-self: center;
+.items-center {
+  justify-content: center;
 }
 
 .list-button {
