@@ -23,10 +23,8 @@ var lessons = [
 document.addEventListener("DOMContentLoaded", function() {
   drawerUtility();
   //getUsername();
-});
-window.speechSynthesis.onvoiceschanged = function() {
   Speech.getVoice();
-};
+});
 function getUsername() {
   const dialog = MDCDialog.attachTo(document.querySelector(".mdc-dialog"));
   const dialogButton = document.querySelector(".dialog-button");
