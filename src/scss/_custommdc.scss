@@ -21,3 +21,19 @@
 .mdc-card__primary-action {
   height: inherit;
 }
+.mdc-card {
+  opacity: 0;
+  transition: mdc-animation-exit-permanent(
+    /* $name: */ opacity,
+    /* $duration: */ 200ms,
+    /* $delay: */ 900ms
+  );
+  will-change: opacity;
+  &--open {
+    transition: mdc-animation-enter(
+      /* $name: */ opacity,
+      /* $duration: */ 1200ms
+    );
+    opacity: 1;
+  }
+}

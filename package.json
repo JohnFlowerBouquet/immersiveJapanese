@@ -18,6 +18,7 @@
     "@material/drawer": "^0.43.0",
     "@material/fab": "^0.43.0",
     "@material/icon-button": "^0.43.0",
+    "@material/icon-toggle": "^0.43.0",
     "@material/list": "^0.43.0",
     "@material/menu": "^0.43.0",
     "@material/menu-surface": "^0.43.0",

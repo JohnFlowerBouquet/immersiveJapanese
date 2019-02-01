@@ -18,6 +18,8 @@ $mdc-theme-on-secondary: #442b2d;
 @import "@material/menu/mdc-menu";
 @import "@material/card/mdc-card";
 @import "@material/typography/mdc-typography";
+@import "@material/animation/variables";
+@import "@material/animation/functions";
 @import "variables";
 @import "custommdc";
 
@@ -35,15 +37,17 @@ html {
   color: rgba(0, 0, 0, 0.87);
 }
 body {
-  background: $bodyBackground;
   height: 100vh;
+  background: $bodyBackground;
 }
 .drawer-main-content {
   display: flex;
   height: 100%;
   justify-content: center;
   align-items: center;
+  background: $bodyBackground;
 }
+//Utilities
 .text-center {
   text-align: center;
 }

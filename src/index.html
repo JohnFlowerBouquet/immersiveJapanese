@@ -27,6 +27,7 @@
       </div>
       <div class="mdc-drawer__content">
         <nav class="mdc-list">
+          <hr class="mdclist-divider" />
           <div class="mdc-list-group">
             <button class="mdc-button list-button">
               <span class="mdc-button__label">Lesson 1</span>
@@ -57,6 +58,7 @@
               </li>
             </ul>
           </div>
+          <hr class="mdclist-divider" />
         </nav>
       </div>
     </aside>
@@ -131,11 +133,37 @@
           </div>
           <div class="mdc-card__actions items-center">
             <div class="mdc-card__action-buttons">
-              <button id="cardBtn1" class="mdc-fab" aria-label="Back">
+              <button
+                id="cardBtnSound"
+                style="margin-right: auto;"
+                class="mdc-fab mdc-fab--mini"
+                aria-label="Back"
+              >
+                <span class="mdc-fab__icon material-icons">volume_up</span>
+              </button>
+              <button
+                id="cardBtn1"
+                class="mdc-fab"
+                style="margin: 0 10px;"
+                aria-label="Back"
+              >
                 <span class="mdc-fab__icon material-icons">arrow_back</span>
               </button>
-              <button id="cardBtn2" class="mdc-fab" aria-label="Back">
+              <button
+                id="cardBtn2"
+                class="mdc-fab"
+                style="margin: 0 10px;"
+                aria-label="Back"
+              >
                 <span class="mdc-fab__icon material-icons">arrow_forward</span>
+              </button>
+              <button
+                id="cardx"
+                style="margin-left: auto; visibility: hidden;"
+                class="mdc-fab mdc-fab--mini"
+                aria-label="Back"
+              >
+                <span class="mdc-fab__icon material-icons">volume_mute</span>
               </button>
             </div>
           </div>
